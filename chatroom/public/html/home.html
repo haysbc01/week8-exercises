@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='chatRoom'>
+
+<head>
+	<title>Chatroom</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js" charset="utf-8"></script>
+
+	<!-- <script src="/javascripts/main.js"></script> -->
+
+	<link rel='stylesheet' href='/stylesheets/style.css'>
+</head>
+
+<body ng-controller='chatController as chat'>
+	<div class="container">
+		<div class="row">
+			<h1>Buck Wild Chatroom</h1>
+		</div>
+		<div class="row">
+			<div id="room" class="col-xs-10" >
+				<h4 ng-repeat='message in chat.messageHistory'>{{message}}</h4></div>
+			<div id="users" class="col-xs-2"></div>
+		</div>
+		<div class="row">
+			<textarea ng-keyup='chat.keyup($event)' ng-model='chat.message' id="message-input" type="text" placeholder="send a message" class="form-control col-xs-12"></textarea>
+			<!-- <h3>{{chat.keyMessage}}-{{chat.key}}</h3> -->
+		</div>
+	</div>
+	<script src="/javascripts/main.js"></script>
+</body>
+</html>
